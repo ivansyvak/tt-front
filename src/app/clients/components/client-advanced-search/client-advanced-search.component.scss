@@ -1,0 +1,12 @@
+.search-form {
+  display: flex;
+  flex-direction: column;
+  width: 800px;    
+}
+
+.search-footer {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+}

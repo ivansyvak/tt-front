@@ -1,0 +1,4 @@
+<app-client-advanced-search *ngIf="clientsService.advancedSearch | async"></app-client-advanced-search>
+<app-client-fast-search *ngIf="!(clientsService.advancedSearch | async)"></app-client-fast-search>
+
+<app-client-list></app-client-list>
