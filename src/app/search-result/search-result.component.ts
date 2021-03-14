@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { SearchService } from '../_services/serach.service';
 
 @Component({
   selector: 'app-search-result',
