@@ -3,12 +3,16 @@
     <mat-label>Fast search by name</mat-label>
     <input matInput [(ngModel)]="name" [ngModelOptions]="{standalone: true}" (keyup)=search()>
   
-    <button mat-button matSuffix mat-icon-button aria-label="Clear" (click)="clientsService.setAdvancedSearchMode(true)">
-      <mat-icon>filter_alt</mat-icon>
-    </button>
-  
-    <button mat-button *ngIf="name" matSuffix mat-icon-button aria-label="Clear" (click)="name=''; search();">
+    <button mat-button matSuffix mat-icon-button *ngIf="name"
+      matTooltip="Info about the action"
+      aria-label="Clear" 
+      (click)="name=''; search();" 
+      >
       <mat-icon>close</mat-icon>
     </button>
+
+    <button mat-button matSuffix mat-icon-button aria-label="Clear" (click)="clientsService.setAdvancedSearchMode(true)">
+      <mat-icon>filter_alt</mat-icon>
+    </button>    
   </mat-form-field>
 </div>

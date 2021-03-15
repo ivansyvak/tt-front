@@ -20,9 +20,7 @@ import { MatSelectModule } from '@angular/material/select';
 import { MatTableModule } from '@angular/material/table';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 import { MatProgressBarModule } from '@angular/material/progress-bar';
-
-
-
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -32,12 +30,13 @@ import { MatProgressBarModule } from '@angular/material/progress-bar';
     ClientHeaderComponent,
     ClientAdvancedSearchComponent,
     ClientFilesComponent,
-    ClientFastSearchComponent
+    ClientFastSearchComponent,    
   ],
   imports: [
     CommonModule,
     FormsModule,
     ClientsRoutingModule,
+    HttpClientModule,
 
     MatInputModule,
     MatButtonModule,

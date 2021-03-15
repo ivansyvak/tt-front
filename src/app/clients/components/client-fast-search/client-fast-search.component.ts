@@ -19,15 +19,19 @@ export class ClientFastSearchComponent implements OnInit {
 
   ngOnInit(): void {
     let subscription = this.searchTextChanged.pipe(
-      debounceTime(1000),
+      debounceTime(500),
       distinctUntilChanged(),
     ).subscribe(s => {
-      this.clientsService.search({name: this.name})
+      // this.clientsService.getList({name: this.name})
     });
   }
 
   search() {
     this.searchTextChanged.next(this.name);
+  }
+
+  addNewClient() {
+    
   }
 
 }

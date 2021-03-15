@@ -1,44 +1,43 @@
+<form class="search-form" (ngSubmit)="search();">
+  <mat-form-field>
+    <mat-label>Name</mat-label>
+    <input matInput [(ngModel)]="name" [ngModelOptions]="{standalone: true}">
+  </mat-form-field>
 
-  <form class="search-form" (ngSubmit)="search();">
+  <mat-form-field>
+    <mat-label>Email</mat-label>
+    <input matInput type="email" [(ngModel)]="email" [ngModelOptions]="{standalone: true}">
+  </mat-form-field>
+
+  <div class="search-footer">
     <mat-form-field>
-      <mat-label>Name</mat-label>
-      <input matInput [(ngModel)]="name" [ngModelOptions]="{standalone: true}">
+      <mat-label>Birthdate from</mat-label>
+      <input matInput type="date" [(ngModel)]="birthDateFrom" [ngModelOptions]="{standalone: true}">
     </mat-form-field>
-  
+
     <mat-form-field>
-      <mat-label>Email</mat-label>
-      <input matInput type="email" [(ngModel)]="email" [ngModelOptions]="{standalone: true}">
+      <mat-label>Birthdate to</mat-label>
+      <input matInput type="date" [(ngModel)]="birthDateTo" [ngModelOptions]="{standalone: true}">
     </mat-form-field>
-  
-    <div class="search-footer">
-      <mat-form-field>
-        <mat-label>Birthdate from</mat-label>
-        <input matInput type="date" [(ngModel)]="birthDateFrom" [ngModelOptions]="{standalone: true}">
-      </mat-form-field>
 
-      <mat-form-field>
-        <mat-label>Birthdate to</mat-label>
-        <input matInput type="date" [(ngModel)]="birthDateTo" [ngModelOptions]="{standalone: true}">
-      </mat-form-field>
+    <mat-form-field>
+      <mat-label>Status</mat-label>
+      <mat-select [(value)]="status">
+        <mat-option value="lead">Lead</mat-option>
+        <mat-option value="demo">Demo</mat-option>
+        <mat-option value="client">Client</mat-option>
+      </mat-select>
+    </mat-form-field>
 
-      <mat-form-field>
-        <mat-label>Status</mat-label>
-        <mat-select [(value)]="status">
-          <mat-option value="lead">Lead</mat-option>
-          <mat-option value="demo">Demo</mat-option>
-          <mat-option value="client">Client</mat-option>
-        </mat-select>        
-      </mat-form-field>
+    <button mat-button type="reset" (click)="reset();">
+      <mat-icon>clear</mat-icon>
+      Clear
+    </button>
+    <button mat-button color="primary">
+      <mat-icon>search</mat-icon>
+      Search
+    </button>
 
-      <button mat-button type="reset" (click)="reset();">
-        <mat-icon>clear</mat-icon>
-        Clear
-      </button>
-      <button mat-raised-button color="primary">
-        <mat-icon>search</mat-icon>
-        Search
-      </button>
+  </div>
 
-    </div>
-
-  </form>
+</form>

@@ -1,1 +1,58 @@
-<p>client-header works!</p>
+<form>
+  <div class="client-name">
+    <mat-form-field>
+      <mat-label>First name</mat-label>
+      <input matInput required
+        [(ngModel)]="client.firstName" [ngModelOptions]="{standalone: true}">
+    </mat-form-field>
+
+    <mat-form-field>
+      <mat-label>Second name</mat-label>
+      <input matInput required
+        [(ngModel)]="client.lastName" [ngModelOptions]="{standalone: true}">
+    </mat-form-field>
+
+    <mat-form-field>
+      <mat-label>Email</mat-label>
+      <input matInput required
+        [(ngModel)]="client.email" [ngModelOptions]="{standalone: true}">
+    </mat-form-field>
+
+  </div>
+
+  <div class="head-footer">
+    <mat-form-field>
+      <mat-label>Birth date</mat-label>
+      <input matInput type="date" 
+        [(ngModel)]="client.birthDate" [ngModelOptions]="{standalone: true}">
+    </mat-form-field>
+
+    <mat-form-field>
+      <mat-label>Registration date</mat-label>
+      <input matInput type="date"  readonly
+        [value]="getRegistrationDate()">
+    </mat-form-field>
+
+    <mat-form-field>
+      <mat-label>Status</mat-label>
+      <mat-select [(value)]="client.status">
+        <mat-option value="lead">Lead</mat-option>
+        <mat-option value="demo">Demo</mat-option>
+        <mat-option value="client">Client</mat-option>
+      </mat-select>
+    </mat-form-field>
+
+    <button *ngIf="client.id" mat-flat-button (click)="fileInput.click()">
+      <mat-icon>attach_file</mat-icon>
+      <span>Upload</span>
+      <input #fileInput type="file" (change)="handleFileInput(fileInput.files)" style="display:none;" accept=".pdf, .jpeg, .png"/>
+    </button>
+
+    <button mat-flat-button color="primary">
+      <mat-icon>save</mat-icon>
+      save
+    </button>
+
+  </div>
+
+</form>

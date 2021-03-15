@@ -36,7 +36,10 @@
   </ng-container>
 
   <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
-  <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+  <tr class="table-row"
+    mat-row *matRowDef="let row; columns: displayedColumns;"
+    [routerLink]="['/clients', row.id]">
+  </tr>
 </table>
 
 <mat-progress-bar *ngIf="clientsService.isLoading | async" mode="indeterminate"></mat-progress-bar>

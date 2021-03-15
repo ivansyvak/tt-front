@@ -1,4 +1,9 @@
 <app-client-advanced-search *ngIf="clientsService.advancedSearch | async"></app-client-advanced-search>
 <app-client-fast-search *ngIf="!(clientsService.advancedSearch | async)"></app-client-fast-search>
-
 <app-client-list></app-client-list>
+
+<div class="fab-container">
+  <button mat-fab color="primary" aria-label="Example icon button with a delete icon" (click)="addClient()">
+    <mat-icon>add</mat-icon>
+  </button>
+</div>

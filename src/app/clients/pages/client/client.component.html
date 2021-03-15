@@ -1,1 +1,5 @@
-<p>client works!</p>
+<mat-spinner *ngIf="clientsService.isLoading | async"></mat-spinner>
+<div *ngIf="!(clientsService.isLoading | async)" style="width: 800px;">
+  <app-client-header></app-client-header>
+  <app-client-files></app-client-files>
+</div>

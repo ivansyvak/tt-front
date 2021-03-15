@@ -22,13 +22,13 @@ export class ClientAdvancedSearchComponent implements OnInit {
   }
 
   search() {
-    this.clientsService.search({
-      name: this.name,
-      email: this.email,
-      birthDateFrom: this.birthDateFrom? new Date(this.birthDateFrom) : undefined,
-      birthDateTo: this.birthDateTo? new Date(this.birthDateTo) : undefined,
-      status: this.status
-    });
+    // this.clientsService.getList({
+    //   name: this.name,
+    //   email: this.email,
+    //   birthDateFrom: this.birthDateFrom? new Date(this.birthDateFrom) : undefined,
+    //   birthDateTo: this.birthDateTo? new Date(this.birthDateTo) : undefined,
+    //   status: this.status
+    // });
   }
 
   reset() {    

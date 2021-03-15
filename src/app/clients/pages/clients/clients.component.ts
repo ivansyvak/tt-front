@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { ClientsService } from '../../services/clients.service';
 
 @Component({
@@ -8,9 +9,14 @@ import { ClientsService } from '../../services/clients.service';
 })
 export class ClientsComponent implements OnInit {
 
-  constructor(public clientsService: ClientsService) { }
+  constructor(public clientsService: ClientsService, private router: Router) { }
 
   ngOnInit(): void {
+    this.clientsService.getAll({});
+  }
+
+  addClient() {
+    this.router.navigate([`/clients/0`]);
   }
 
 }

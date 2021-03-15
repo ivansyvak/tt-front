@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { ClientFile } from 'src/app/shared/interfaces/client-file';
+import { ClientsService } from '../../services/clients.service';
 
 @Component({
   selector: 'app-client-files',
@@ -6,10 +8,16 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./client-files.component.scss']
 })
 export class ClientFilesComponent implements OnInit {
+  displayedColumns = ['fileName', 'originalName', 'mime', 'size']
 
-  constructor() { }
+  files: ClientFile[] = [];
+
+  constructor(public clientsService: ClientsService) { }
 
   ngOnInit(): void {
+    this.clientsService.selectedClient
+      .subscribe(c => (this.files = c.files))
+      .unsubscribe();
   }
 
 }

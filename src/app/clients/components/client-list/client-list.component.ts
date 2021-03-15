@@ -14,6 +14,5 @@ export class ClientListComponent implements OnInit {
   constructor(public clientsService: ClientsService) {     
   }
 
-  ngOnInit(): void {
-  }
+  ngOnInit(): void {}
 }
