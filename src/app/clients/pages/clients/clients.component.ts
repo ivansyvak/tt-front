@@ -12,7 +12,8 @@ export class ClientsComponent implements OnInit {
   constructor(public clientsService: ClientsService, private router: Router) { }
 
   ngOnInit(): void {
-    this.clientsService.getAll({});
+    this.clientsService.setSearchParams({});
+    this.clientsService.getAll();
   }
 
   addClient() {

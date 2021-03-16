@@ -10,7 +10,7 @@ import { debounceTime, distinctUntilChanged, mergeMap } from 'rxjs/operators';
   styleUrls: ['./client-fast-search.component.scss']
 })
 export class ClientFastSearchComponent implements OnInit {  
-  name: string;
+  name: string = '';
 
   searchTextChanged = new Subject<string>();
 
@@ -22,16 +22,12 @@ export class ClientFastSearchComponent implements OnInit {
       debounceTime(500),
       distinctUntilChanged(),
     ).subscribe(s => {
-      // this.clientsService.getList({name: this.name})
+      this.clientsService.setSearchParams({name: this.name});
+      this.clientsService.getAll();
     });
   }
 
-  search() {
-    this.searchTextChanged.next(this.name);
-  }
-
-  addNewClient() {
-    
-  }
-
+  search() {    
+    this.searchTextChanged.next(this.name || '');
+  }  
 }

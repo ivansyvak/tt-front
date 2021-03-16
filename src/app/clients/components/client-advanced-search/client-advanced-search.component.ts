@@ -16,19 +16,21 @@ export class ClientAdvancedSearchComponent implements OnInit {
   birthDateTo: Date;
   status: 'lead' | 'demo' | 'client';
 
-  constructor(private clientsService: ClientsService) { }
+  constructor(public clientsService: ClientsService) { }
 
   ngOnInit(): void {
   }
 
-  search() {
-    // this.clientsService.getList({
-    //   name: this.name,
-    //   email: this.email,
-    //   birthDateFrom: this.birthDateFrom? new Date(this.birthDateFrom) : undefined,
-    //   birthDateTo: this.birthDateTo? new Date(this.birthDateTo) : undefined,
-    //   status: this.status
-    // });
+  search() {    
+    this.clientsService.setSearchParams({
+      name: this.name,
+      email: this.email,
+      birthDateFrom: this.birthDateFrom? this.birthDateFrom : undefined,
+      birthDateTo: this.birthDateTo? this.birthDateTo : undefined,
+      status: this.status
+    });
+
+    this.clientsService.getAll();
   }
 
   reset() {    

@@ -16,8 +16,6 @@ export class ClientFilesComponent implements OnInit {
 
   ngOnInit(): void {
     this.clientsService.selectedClient
-      .subscribe(c => (this.files = c.files))
-      .unsubscribe();
+      .subscribe(c => (this.files = c.files))      
   }
-
 }

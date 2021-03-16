@@ -15,8 +15,7 @@ export class ClientHeaderComponent implements OnInit {
 
   ngOnInit(): void {
     this.clientService.selectedClient
-      .subscribe(c => (this.client = c))
-      .unsubscribe();
+      .subscribe(c => (this.client = c))      
   }
 
   getRegistrationDate() {
@@ -29,5 +28,14 @@ export class ClientHeaderComponent implements OnInit {
 
   handleFileInput(files) {    
     this.clientService.saveFile(this.client.id, files[0]);
+  }
+
+  saveClient() {    
+    // костыль для добавления нового клиента
+    if (this.client.id == 0) {
+      delete this.client.id;
+    }
+
+    this.clientService.update(this.client);
   }
 }

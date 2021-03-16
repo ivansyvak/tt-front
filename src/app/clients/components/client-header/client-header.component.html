@@ -23,7 +23,7 @@
   <div class="head-footer">
     <mat-form-field>
       <mat-label>Birth date</mat-label>
-      <input matInput type="date" 
+      <input matInput type="date" required 
         [(ngModel)]="client.birthDate" [ngModelOptions]="{standalone: true}">
     </mat-form-field>
 
@@ -48,7 +48,7 @@
       <input #fileInput type="file" (change)="handleFileInput(fileInput.files)" style="display:none;" accept=".pdf, .jpeg, .png"/>
     </button>
 
-    <button mat-flat-button color="primary">
+    <button mat-flat-button color="primary" (click)='saveClient()'>
       <mat-icon>save</mat-icon>
       save
     </button>
